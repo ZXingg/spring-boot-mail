@@ -52,7 +52,11 @@ public class SpringDemoSendMailApplicationTests {
 			message = mailSender.createMimeMessage();
 			MimeMessageHelper helper = new MimeMessageHelper(message, true);
 			helper.setFrom(Sender);
-			helper.setTo(Sender);
+			//群发  请将*********修改为实际账号
+			InternetAddress[] to_mail={new InternetAddress("*********@qq.com")
+					,new InternetAddress("*********@qq.com"),new InternetAddress("*********@qq.com")};
+			//message.setRecipients(Message.RecipientType.TO,to_mail);
+			helper.setTo(to_mail);
 			helper.setSubject("主题：HTML邮件");
 
 			StringBuilder sb = new StringBuilder();
